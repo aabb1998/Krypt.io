@@ -1,0 +1,7 @@
+.nav-links {
+	border-bottom: 2px solid transparent;
+}
+
+.nav-links:hover {
+	border-bottom: 2px solid #3861fb;
+}

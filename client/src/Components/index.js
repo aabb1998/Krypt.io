@@ -1,4 +1,4 @@
-export { default as Navbar } from "./Navbar";
+export { default as Navbar } from "./Navbar/Navbar";
 export { default as Preview } from "./Preview";
 export { default as LiveMarket } from "./LiveMarket";
 export { default as GetStarted } from "./GetStarted";
