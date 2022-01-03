@@ -18,7 +18,7 @@ function App() {
       <div className="preview">
         <Preview />
         <GetStarted />
-        {/* <LiveMarket /> */}
+        <LiveMarket />
         <MailingList />
         <Footer />
       </div>
