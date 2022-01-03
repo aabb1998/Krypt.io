@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
 import { useState } from 'react';
+import './LiveMarket.css';
 
 const LiveMarket = () => {
   const [coinData, setCoinData] = useState([]);
@@ -37,7 +38,30 @@ const LiveMarket = () => {
     fetchCurrentMarket();
   }, []);
 
-  return <div>LiveMarket</div>;
+  return (
+    <div className="liveMarket">
+      <div className="liveMarket__section">
+        <div className="liveMarket__header">
+          <h4>#</h4>
+          <h4>Name</h4>
+          <h4>Price</h4>
+          <h4>Change</h4>
+          <h4>24H High</h4>
+        </div>
+        {coinData.map((coin) => {
+          return (
+            <div className="liveMarket__data-coin">
+              <h4 key={coin.market_cap_rank}>{coin.market_cap_rank}</h4>
+              <h4 key={coin.market_cap_rank}>{coin.id}</h4>
+              <h4 key={coin.market_cap_rank}>{coin.current_price}</h4>
+              <h4 key={coin.market_cap_rank}>{coin.price_change_24h}</h4>
+              <h4 key={coin.market_cap_rank}>{coin.high_24h}</h4>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
 };
 
 export default LiveMarket;
