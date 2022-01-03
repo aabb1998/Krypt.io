@@ -1,9 +1,9 @@
 .mailing__section {
   display: flex;
   flex-direction: row;
-  width: 80%;
-  margin: auto;
   align-items: center;
+  background-color: #fbfbfe;
+  width: 100%;
   justify-content: center;
   margin-bottom: 300px;
   -webkit-touch-callout: none; /* iOS Safari */
@@ -59,24 +59,26 @@
 
 .mailing__section-right {
   height: auto;
-  width: 500px;
   margin-left: 50px;
 }
 
-@media screen and (max-width: 929px) {
-  .mailing__section {
-    display: flex;
-    flex-direction: column-reverse;
-    width: 60%;
-    align-items: center;
-    justify-content: center;
-    margin: auto;
-    margin-bottom: 200px;
-  }
+.mailing__section-right img {
+  height: auto;
+}
 
+.mailing__container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+}
+
+@media screen and (max-width: 929px) {
   .mailing__section-right {
     height: auto;
     width: auto;
+    margin-left: 0px;
   }
 
   .mailing__section-left {

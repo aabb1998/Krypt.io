@@ -1,0 +1,117 @@
+.footer__section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: #fbfbfe;
+  padding: 50px 0px 50px 0px;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+.footer__section-container {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer__section-left {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.footer__section-left p {
+  margin-bottom: 20px;
+}
+
+.footer__button-login {
+  padding: 4px;
+  background-color: #3861fb;
+  width: 100px;
+  color: white;
+  border-radius: 14px;
+  margin-bottom: 10px;
+}
+
+.footer__button-signup {
+  padding: 4px;
+  background-color: white;
+  border: 1px solid #3861fb;
+  width: 100px;
+  color: #3861fb;
+  border-radius: 14px;
+  margin-bottom: 10px;
+}
+
+.footer__section-right ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer__section-right {
+  width: 60%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.footer__section-logo {
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.footer__section-right nav ul li {
+  cursor: pointer;
+}
+
+.footer__section-logo img {
+  width: 140px;
+}
+
+@media screen and (max-width: 902px) {
+  .footer__section-container {
+    flex-direction: column;
+  }
+
+  .footer__section-left {
+    width: 50%;
+    margin-bottom: 20px;
+  }
+
+  .footer__section-right nav ul {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .footer__section-right nav ul li {
+    margin-bottom: 7px;
+    font-weight: 500;
+  }
+
+  .footer__section-logo {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer__section-logo img {
+    margin-bottom: 10px;
+  }
+}

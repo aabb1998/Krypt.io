@@ -7,10 +7,8 @@ const Preview = () => {
     <div className="preview__section">
       <div className="preview__header">
         <h1 className="preview__text">
-          The easiest way to <br />
-          <span style={{ color: '#3861FB' }}>
-            track multiple cryptocurrencies.
-          </span>
+          The Easiest Way To <br />
+          <span style={{ color: '#3861FB' }}>Track Multiple Currencies.</span>
         </h1>
       </div>
       <div className="preview__desc">
