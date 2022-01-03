@@ -1,0 +1,86 @@
+.mailing__section {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 300px;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+.mailing__section-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.mailing__section-text h4 {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.mailing__section-info {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.mailing__section-email {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+}
+
+.mailing__section-email input {
+  border: 1px solid #3861fb;
+  padding: 10px;
+  text-align: left;
+  align-items: center;
+  font-size: 13px;
+  width: 300px;
+  border-radius: 6px;
+  outline: none;
+}
+
+.mailing__section-email button {
+  padding: 10px;
+  background-color: #3861fb;
+  color: white;
+  border-radius: 6px;
+  margin-left: 10px;
+  width: 120px;
+}
+
+.mailing__section-right {
+  height: auto;
+  width: 500px;
+  margin-left: 50px;
+}
+
+@media screen and (max-width: 929px) {
+  .mailing__section {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 60%;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-bottom: 200px;
+  }
+
+  .mailing__section-right {
+    height: auto;
+    width: auto;
+  }
+
+  .mailing__section-left {
+    margin-top: 50px;
+    align-items: center;
+  }
+}

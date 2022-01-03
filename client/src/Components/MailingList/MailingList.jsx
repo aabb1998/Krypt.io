@@ -1,4 +1,6 @@
 import React from 'react';
+import './MailingList.css';
+import mailImg from '../../assets/mailinglist.png';
 
 const MailingList = () => {
   return (
@@ -9,7 +11,7 @@ const MailingList = () => {
             Be the first to know about{' '}
             <span style={{ color: '#3861FB' }}>crypto news every day</span>
           </h4>
-          <span>
+          <span className="mailing__section-info">
             Get crypto analysis, news and updates right to your inbox. Sign Up
             here so you don't miss a single newsletter.
           </span>
@@ -18,6 +20,9 @@ const MailingList = () => {
           <input type="email" placeholder="Enter your email address" />
           <button>Subscribe</button>
         </div>
+      </div>
+      <div className="mailing__section-right">
+        <img src={mailImg} alt="" />
       </div>
     </div>
   );
