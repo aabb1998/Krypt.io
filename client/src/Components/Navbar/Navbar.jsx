@@ -33,8 +33,8 @@ const Navbar = () => {
 				)}
 			</ul>
 			<div className="button__container">
-				<button className=" text-white bg-[#3861FB] py-2 px-7 rounded-[8px] cursor-pointer hover:text-black">
-					Login
+				<button className=" text-white bg-[#3861FB] py-1.5 px-5 rounded-[8px] cursor-pointer hover:text-black">
+					<Link to="/login">Log in</Link>
 				</button>
 			</div>
 			{/* <div className="flex relative">
