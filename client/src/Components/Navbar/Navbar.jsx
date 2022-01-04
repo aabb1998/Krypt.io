@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import logo from "../../assets/logo.png";
 import { HiMenuAlt4 } from "react-icons/hi";
 import { AiOutlineClose } from "react-icons/ai";
+import { Outlet, Link } from "react-router-dom";
 import "./Navbar.css";
 
 const NavbarItems = ({ title, classProps }) => (
 	<li
 		className={`cursor-pointer mx-9 nav-links sm:text-[15px] ${classProps}`}
 	>
-		{title}
+		<Link to="/account">{title}</Link>
 	</li>
 );
 

@@ -54,18 +54,20 @@ const LiveMarket = () => {
 			<div className="liveMarket__section">
 				<div className="liveMarket__header">
 					<table id="data">
-						<tr>
-							<th>#</th>
-							<th></th>
-							<th>Name</th>
-							<th>Price</th>
-							<th>Change</th>
-							<th>24H High</th>
-						</tr>
-						{coinData &&
-							coinData.map((coin, index) => (
-								<CoinData data={coin} index={index} />
-							))}
+						<tbody>
+							<tr>
+								<th>#</th>
+								<th></th>
+								<th>Name</th>
+								<th>Price</th>
+								<th>Change</th>
+								<th>24H High</th>
+							</tr>
+							{coinData &&
+								coinData.map((coin, index) => (
+									<CoinData data={coin} key={index} />
+								))}
+						</tbody>
 					</table>
 				</div>
 				<div className="data__load">

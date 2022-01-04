@@ -19,7 +19,7 @@ const CoinData = (data, index) => {
 			>
 				{parseFloat(data.data.price_change_percentage_24h).toFixed(2)} %
 			</td>
-			<td>US ${data.data.high_24h}</td>
+			<td>US ${data.data.high_24h.toLocaleString()}</td>
 		</tr>
 	);
 };
