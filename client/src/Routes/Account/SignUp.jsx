@@ -3,7 +3,6 @@ import lock from '../../assets/lock.png';
 import { AiFillLock } from 'react-icons/ai';
 import { Navbar } from '../../Components';
 import './SignUp.css';
-import { useAuth } from '../../Context/AuthContext';
 
 const SignUp = () => {
   const emailRef = useRef();
