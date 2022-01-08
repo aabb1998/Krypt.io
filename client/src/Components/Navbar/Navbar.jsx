@@ -11,7 +11,7 @@ import { BiLogOut } from 'react-icons/bi';
 
 const NavbarItems = ({ title, classProps }) => (
   <li className={`cursor-pointer mx-9 nav-links sm:text-[15px] ${classProps}`}>
-    <Link to="/account">{title}</Link>
+    <Link to="">{title}</Link>
   </li>
 );
 

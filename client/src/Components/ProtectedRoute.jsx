@@ -5,9 +5,9 @@ import { useUserAuth } from '../Context/UserAuthContext';
 const ProtectedRoute = ({ children }) => {
   const { user } = useUserAuth();
   if (!user) {
-    <Navigate to="login" />;
-  } else {
-    <Navigate to="account" />;
+    console.log('User not logged in.');
+
+    return <Navigate to="/login" />;
   }
 
   return children;

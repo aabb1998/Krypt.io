@@ -14,7 +14,14 @@ render(
     <UserAuthContextProvider>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="account" element={<Account />} onEnter />
+        <Route
+          path="account"
+          element={
+            <ProtectedRoute>
+              <Account />
+            </ProtectedRoute>
+          }
+        />
         <Route path="signup" element={<SignUp />} />
         <Route path="login" element={<Login />} />
       </Routes>
