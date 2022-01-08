@@ -3,10 +3,22 @@ import lock from '../../assets/lock.png';
 import { AiFillLock } from 'react-icons/ai';
 import { Navbar } from '../../Components';
 import './SignUp.css';
+import { useUserAuth } from '../../Context/UserAuthContext';
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { signUp } = useUserAuth();
+  const [error, setError] = useState('');
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError('');
+    try {
+      await signUp(email, password);
+    } catch (error) {
+      setError(error.message);
+    }
+  };
 
   return (
     <div className="signup">
@@ -26,6 +38,7 @@ const SignUp = () => {
               <span>https://purecrypto.io</span>
             </div>
           </div>
+          {error && <span>{error}</span>}
           <div className="signup__container-input">
             <input
               onChange={(e) => setEmail(e.target.value)}
@@ -47,7 +60,7 @@ const SignUp = () => {
               <span>I agree to the Terms of Use</span>
             </div>
           </div>
-          <div className="signup__container-signup">
+          <div className="signup__container-signup" onClick={handleSubmit}>
             <button>Create Account</button>
             <span>
               by creating an account you agree to our <br />
