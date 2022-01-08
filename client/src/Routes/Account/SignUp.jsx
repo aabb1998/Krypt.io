@@ -9,25 +9,33 @@ import { Link, useNavigate } from 'react-router-dom';
 const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPass, setConfirmPass] = useState('');
+  const [username, setUserName] = useState('');
   const [agreeTerms, setAgreeTerms] = useState(false);
-  const { signUp } = useUserAuth();
+  const { signUp, updateName, logOut } = useUserAuth();
   const [error, setError] = useState('');
 
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-    if (agreeTerms) {
+    if (agreeTerms && password === confirmPass && email) {
       e.preventDefault();
       setError('');
       try {
-        await signUp(email, password);
+        await signUp(email, password, username);
+        await updateName(username);
+        await logOut();
         navigate('/login');
       } catch (error) {
         setError(error.message);
         console.log(error);
       }
-    } else {
+    } else if (!agreeTerms) {
       setError('Please agree to terms and conditions');
+    } else if (password !== confirmPass) {
+      setError("Your passwords don't match.");
+    } else if (!email) {
+      setError('Please enter your details.');
     }
   };
 
@@ -60,6 +68,12 @@ const SignUp = () => {
           {error && <span>{error}</span>}
           <div className="signup__container-input">
             <input
+              type="text"
+              placeholder="User Name"
+              required
+              onChange={(e) => setUserName(e.target.value)}
+            />
+            <input
               onChange={(e) => setEmail(e.target.value)}
               type="email"
               placeholder="Email"
@@ -71,7 +85,12 @@ const SignUp = () => {
               required
               onChange={(e) => setPassword(e.target.value)}
             />
-            <input type="password" placeholder="Confirm password" required />
+            <input
+              onChange={(e) => setConfirmPass(e.target.value)}
+              type="password"
+              placeholder="Confirm password"
+              required
+            />
           </div>
           <div className="signup__container-checkSection">
             <div className="signup__container-check">

@@ -79,7 +79,7 @@ const Login = () => {
               Login
             </button>
             <span>
-              by creating an account you agree to our <br />
+              by logging in, you agree to our <br />
               Terms of Use & Privacy Policy
             </span>
           </div>

@@ -7,6 +7,7 @@ import './Navbar.css';
 import App from './../../App';
 import { useUserAuth } from '../../Context/UserAuthContext';
 import { useEffect } from 'react';
+import { BiLogOut } from 'react-icons/bi';
 
 const NavbarItems = ({ title, classProps }) => (
   <li className={`cursor-pointer mx-9 nav-links sm:text-[15px] ${classProps}`}>
@@ -14,9 +15,29 @@ const NavbarItems = ({ title, classProps }) => (
   </li>
 );
 
+const LogOut = ({ user, handleLogout }) => (
+  <div className="logout__container">
+    <span style={{ fontWeight: '500' }}>{user.displayName}</span>
+    <BiLogOut
+      onClick={handleLogout}
+      style={{ marginLeft: '10px', cursor: 'pointer' }}
+      fontSize={22}
+      color="#3861fb"
+    />
+  </div>
+);
+
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
-  const { user } = useUserAuth();
+  const { user, logOut } = useUserAuth();
+
+  const handleLogout = async () => {
+    try {
+      await logOut();
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
   return (
     <nav className="w-full flex md:justify-around justify-between items-center p-4 select-none navbar">
@@ -46,7 +67,7 @@ const Navbar = () => {
         </div>
       )}
 
-      {user && <span>{user.email}</span>}
+      {user && <LogOut user={user} handleLogout={handleLogout} />}
 
       {/* <div className="flex relative">
         {!toggleMenu && (
