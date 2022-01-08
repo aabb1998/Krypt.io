@@ -7,6 +7,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   updateProfile,
+  updateEmail,
   sendPasswordResetEmail,
 } from 'firebase/auth';
 import { auth } from '../firebase';
@@ -28,6 +29,16 @@ export function UserAuthContextProvider({ children }) {
     })
       .then(() => {
         console.log('Profile updated');
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  }
+
+  function updateUserEmail(email) {
+    return updateEmail(auth.currentUser, email)
+      .then(() => {
+        console.log('Email Updated');
       })
       .catch((error) => {
         console.log(error.message);
@@ -56,7 +67,15 @@ export function UserAuthContextProvider({ children }) {
 
   return (
     <userAuthContext.Provider
-      value={{ user, logIn, signUp, logOut, googleSignIn, updateName }}
+      value={{
+        user,
+        logIn,
+        signUp,
+        logOut,
+        googleSignIn,
+        updateName,
+        updateUserEmail,
+      }}
     >
       {children}
     </userAuthContext.Provider>
