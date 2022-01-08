@@ -1,14 +1,12 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import lock from '../../assets/lock.png';
 import { AiFillLock } from 'react-icons/ai';
 import { Navbar } from '../../Components';
 import './SignUp.css';
 
 const SignUp = () => {
-  const emailRef = useRef();
-  const usernameRef = useRef();
-  const passwordRef = useRef();
-  const passwordConfirmRef = useRef();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   return (
     <div className="signup">
@@ -30,24 +28,18 @@ const SignUp = () => {
           </div>
           <div className="signup__container-input">
             <input
-              type="text"
-              placeholder="User name"
+              onChange={(e) => setEmail(e.target.value)}
+              type="email"
+              placeholder="Email"
               required
-              ref={usernameRef}
             />
             <input
               type="password"
               placeholder="Password"
               required
-              ref={passwordRef}
+              onChange={(e) => setPassword(e.target.value)}
             />
-            <input
-              type="password"
-              placeholder="Confirm password"
-              required
-              ref={passwordConfirmRef}
-            />
-            <input type="email" placeholder="Email" required ref={emailRef} />
+            <input type="password" placeholder="Confirm password" required />
           </div>
           <div className="signup__container-checkSection">
             <div className="signup__container-check">
