@@ -5,6 +5,8 @@ import { AiOutlineClose } from 'react-icons/ai';
 import { Outlet, Link } from 'react-router-dom';
 import './Navbar.css';
 import App from './../../App';
+import { useUserAuth } from '../../Context/UserAuthContext';
+import { useEffect } from 'react';
 
 const NavbarItems = ({ title, classProps }) => (
   <li className={`cursor-pointer mx-9 nav-links sm:text-[15px] ${classProps}`}>
@@ -14,6 +16,7 @@ const NavbarItems = ({ title, classProps }) => (
 
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
+  const { user } = useUserAuth();
 
   return (
     <nav className="w-full flex md:justify-around justify-between items-center p-4 select-none navbar">
@@ -33,14 +36,18 @@ const Navbar = () => {
           )
         )}
       </ul>
-      <div className="button__container">
-        <Link to="/login">
-          {' '}
-          <button className=" text-white bg-[#3861FB] py-1.5 px-5 rounded-[8px] cursor-pointer hover:text-black">
-            Log in
-          </button>
-        </Link>
-      </div>
+      {!user && (
+        <div className="button__container">
+          <Link to="/login">
+            <button className=" text-white bg-[#3861FB] py-1.5 px-5 rounded-[8px] cursor-pointer hover:text-black">
+              Log in
+            </button>
+          </Link>
+        </div>
+      )}
+
+      {user && <span>{user.email}</span>}
+
       {/* <div className="flex relative">
         {!toggleMenu && (
           <HiMenuAlt4

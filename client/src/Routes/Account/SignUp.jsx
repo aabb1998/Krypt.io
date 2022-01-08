@@ -4,21 +4,40 @@ import { AiFillLock } from 'react-icons/ai';
 import { Navbar } from '../../Components';
 import './SignUp.css';
 import { useUserAuth } from '../../Context/UserAuthContext';
+import { Link, useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [agreeTerms, setAgreeTerms] = useState(false);
   const { signUp } = useUserAuth();
   const [error, setError] = useState('');
+
+  const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError('');
-    try {
-      await signUp(email, password);
-    } catch (error) {
-      setError(error.message);
+    if (agreeTerms) {
+      e.preventDefault();
+      setError('');
+      try {
+        await signUp(email, password);
+        navigate('/login');
+      } catch (error) {
+        setError(error.message);
+        console.log(error);
+      }
+    } else {
+      setError('Please agree to terms and conditions');
     }
   };
+
+  const handleRadio = () => {
+    setAgreeTerms(!agreeTerms);
+  };
+
+  useEffect(() => {
+    console.log(agreeTerms);
+  }, [agreeTerms]);
 
   return (
     <div className="signup">
@@ -56,7 +75,11 @@ const SignUp = () => {
           </div>
           <div className="signup__container-checkSection">
             <div className="signup__container-check">
-              <input type="checkbox" placeholder="hello" />
+              <input
+                type="checkbox"
+                placeholder="hello"
+                onChange={handleRadio}
+              />
               <span>I agree to the Terms of Use</span>
             </div>
           </div>

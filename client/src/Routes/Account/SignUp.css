@@ -1,118 +1,124 @@
 .signup {
-	display: flex;
-	flex-direction: column;
-	background-color: #f7f9fc;
-	-webkit-touch-callout: none; /* iOS Safari */
-	-webkit-user-select: none; /* Safari */
-	-khtml-user-select: none; /* Konqueror HTML */
-	-moz-user-select: none; /* Old versions of Firefox */
-	-ms-user-select: none; /* Internet Explorer/Edge */
-	user-select: none; /* Non-prefixed version, currently
+  display: flex;
+  flex-direction: column;
+  background-color: #f7f9fc;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
 }
 
 .signup__container-icon {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .signup__section {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
 }
 
 .signup__container {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-around;
-	text-align: center;
-	height: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  height: 60%;
 }
 
 .signup__container h4 {
-	font-size: 32px;
-	font-weight: 600;
+  font-size: 32px;
+  font-weight: 600;
 }
 
 .signup__container-disc {
-	background-color: #eff6ff;
-	padding: 17px;
+  background-color: #eff6ff;
+  padding: 17px;
 }
 
 .signup__container-disc span {
-	font-size: 13px;
+  font-size: 13px;
 }
 
 .signup__container-disc img {
-	width: 20px;
+  width: 20px;
 }
 
 .signup__container-input {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .signup__container-input input {
-	color: black;
-	padding: 10px;
-	font-size: 12px;
-	outline: none;
-	width: 300px;
-	margin-bottom: 10px;
+  color: black;
+  padding: 10px;
+  font-size: 12px;
+  outline: none;
+  width: 300px;
+  margin-bottom: 10px;
 }
 
 .signup__container-check {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .signup__container-checkSection {
-	display: flex;
-	width: 100%;
-	justify-content: center;
+  display: flex;
+  width: 100%;
+  justify-content: center;
 }
 
 .signup__container-checkSection span {
-	font-size: 12px;
+  font-size: 12px;
 }
 
 .signup__container-check input {
-	margin-right: 10px;
+  margin-right: 10px;
 }
 
 .signup__container-forgot {
-	align-items: center;
-	text-align: center;
-	display: flex;
-	justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .signup__container-forgot span {
-	color: #3283ce;
-	text-decoration: underline;
-	cursor: pointer;
+  color: #3283ce;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .signup__container-signup {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .signup__container-signup button {
-	background-color: #d3d3d3;
-	width: 300px;
-	padding: 10px;
+  background-color: #d3d3d3;
+  width: 300px;
+  padding: 10px;
+  border: 1px solid transparent;
+}
+
+.signup__container-signup button:hover {
+  background-color: white;
+  border: 1px solid black;
 }
 
 .signup__container-signup span {
-	font-size: 10px;
-	margin-top: 10px;
+  font-size: 10px;
+  margin-top: 10px;
 }

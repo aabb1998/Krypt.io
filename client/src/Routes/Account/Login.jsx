@@ -1,11 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Navbar } from '../../Components';
 import './Login.css';
 import lock from '../../assets/lock.png';
 import { AiFillLock } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useUserAuth } from '../../Context/UserAuthContext';
 
 const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const { logIn } = useUserAuth();
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    if (email != '' || password != '') {
+      e.preventDefault();
+      setError('');
+      console.log(error);
+      try {
+        await logIn(email, password);
+        navigate('/');
+      } catch (err) {
+        setError(err.message);
+        console.log(error);
+      }
+    } else {
+      setError('Please enter your account details.');
+    }
+  };
+
   return (
     <div className="login">
       <div className="login__nav">
@@ -24,9 +49,19 @@ const Login = () => {
               <span>https://purecrypto.io</span>
             </div>
           </div>
+          {error && <span>{error}</span>}
+
           <div className="login__container-input">
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
+            <input
+              onChange={(e) => setEmail(e.target.value)}
+              type="email"
+              placeholder="Email"
+            />
+            <input
+              onChange={(e) => setPassword(e.target.value)}
+              type="password"
+              placeholder="Password"
+            />
           </div>
           <div className="login__container-checkSection">
             <div className="login__container-check">
@@ -40,7 +75,9 @@ const Login = () => {
             </div>
           </div>
           <div className="login__container-login">
-            <button>Login</button>
+            <button type="submit" onClick={handleSubmit}>
+              Login
+            </button>
             <span>
               by creating an account you agree to our <br />
               Terms of Use & Privacy Policy
