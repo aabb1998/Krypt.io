@@ -49,6 +49,8 @@
 .account__profile-details {
   display: flex;
   flex-direction: row;
+  width: 70%;
+  justify-content: center;
 }
 
 .account__details {
@@ -99,6 +101,7 @@
   border: 1px solid gray;
   border-radius: 10px;
   font-size: 13px;
+  width: 300px;
 }
 
 .account__passReset {
@@ -137,11 +140,11 @@
 .account__save-Btn button {
   padding: 10px;
   margin-top: 20px;
-  color: gray;
+  color: white;
   /* cursor: not-allowed; */
   padding: 10px;
-  background-color: #e5e5e5;
-  font-weight: bold;
+  background-color: #3861fb;
+  font-weight: 500;
   font-size: 15px;
   border-radius: 10px;
 }

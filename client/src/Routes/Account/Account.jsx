@@ -76,7 +76,15 @@ const Account = () => {
           <div className="account__save-Btn">
             <button
               onClick={handleSubmit}
-              style={!newUser && !newEmail ? { cursor: 'not-allowed' } : null}
+              style={
+                !newUser && !newEmail
+                  ? {
+                      cursor: 'not-allowed',
+                      pointerEvents: 'none',
+                      backgroundColor: '#e5e5e5',
+                    }
+                  : null
+              }
             >
               Save
             </button>
