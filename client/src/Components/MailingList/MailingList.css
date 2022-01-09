@@ -92,14 +92,29 @@
 	}
 
 	.mailing__section-email input {
-		width: 300px;
+		width: 100%;
 		font-size: 10px;
+	}
+
+	.mailing__section-email {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+	}
+
+	.mailing__section-email button {
+		width: 100%;
+		margin-top: 10px;
+		margin-left: 0px;
+		font-size: 12px;
 	}
 }
 
 @media screen and (max-width: 510px) {
 	.mailing__section-email input {
-		width: 200px;
+		width: 100%;
 		font-size: 10px;
 	}
 }

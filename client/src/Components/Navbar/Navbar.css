@@ -1,26 +1,31 @@
 .nav-links {
-  border-bottom: 2px solid transparent;
+	border-bottom: 2px solid transparent;
 }
 
 .nav-links:hover {
-  border-bottom: 2px solid #3861fb;
+	border-bottom: 2px solid #3861fb;
 }
 
 .logout__container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
 }
 
 @media screen and (max-width: 900px) {
-  .nav__list {
-    display: none;
-  }
+	.nav__list {
+		display: none;
+	}
 }
 
 @media screen and (max-width: 766px) {
-  .button__container {
-    display: flex;
-    justify-content: flex-end;
-  }
+	.button__container {
+		display: flex;
+		justify-content: flex-end;
+	}
+}
+
+.footer__section-button {
+	display: flex;
+	flex-direction: column;
 }
