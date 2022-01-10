@@ -35,6 +35,12 @@ export function UserAuthContextProvider({ children }) {
       });
   }
 
+  function resetPass(email) {
+    return sendPasswordResetEmail(auth, email)
+      .then(() => console.log('Password reset sent.'))
+      .catch((error) => console.log(error.message));
+  }
+
   function updateUserEmail(email) {
     return updateEmail(auth.currentUser, email)
       .then(() => {
@@ -75,6 +81,7 @@ export function UserAuthContextProvider({ children }) {
         googleSignIn,
         updateName,
         updateUserEmail,
+        resetPass,
       }}
     >
       {children}

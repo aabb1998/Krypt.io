@@ -5,11 +5,13 @@ import { Footer, MailingList } from '../../Components';
 import profilePic from '../../assets/profile-pic.png';
 import { useUserAuth } from '../../Context/UserAuthContext';
 import { useState } from 'react';
+import PasswordReset from './PasswordReset';
 
 const Account = () => {
-  const { user, updateName, updateUserEmail } = useUserAuth();
+  const { user, updateName, updateUserEmail, resetPass } = useUserAuth();
   const [newUser, setNewUser] = useState('');
   const [newEmail, setNewEmail] = useState('');
+  const [showModal, setShowModal] = useState(false);
 
   const handleSubmit = async () => {
     try {
@@ -26,10 +28,23 @@ const Account = () => {
     }
   };
 
+  const handlePassReset = () => {
+    setShowModal(true);
+  };
+
+  const handleModalClose = () => {
+    setShowModal(false);
+  };
+
   return (
     <div className="account__profile">
       <Navbar />
       <div className="account__profile-section">
+        <PasswordReset
+          show={showModal}
+          handleClose={handleModalClose}
+          handleOpen={handlePassReset}
+        />
         <div className="account__profile-header">
           <h2>Account Settings</h2>
         </div>
@@ -96,7 +111,7 @@ const Account = () => {
             <span>Set a unique password to protect your personal account.</span>
           </div>
           <div className="account__passReset-Btn">
-            <button>Change Password</button>
+            <button onClick={handlePassReset}>Change Password</button>
           </div>
         </div>
       </div>
