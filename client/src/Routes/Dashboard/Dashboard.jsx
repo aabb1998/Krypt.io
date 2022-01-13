@@ -5,15 +5,19 @@ import './Dashboard.css';
 import DashboardMain from './DashboardMain/DashboardMain';
 import { useUserAuth } from '../../Context/UserAuthContext';
 import { useEffect } from 'react';
+import DashboardHelp from './DashboardHelp/DashboardHelp';
 
 const Dashboard = () => {
   const { user, logout, setDashboard, dashboardElement } = useUserAuth();
 
   useEffect(() => {
     console.log(dashboardElement);
-  }, []);
+  }, [dashboardElement]);
 
-  const currentDashboardElement = () => {};
+  const currentDashboardElement = () => {
+    if (dashboardElement === 0) return <DashboardMain />;
+    if (dashboardElement === 1) return <DashboardHelp />;
+  };
 
   return (
     <div className="Dashboard">
@@ -25,7 +29,8 @@ const Dashboard = () => {
           <LeftMenu />
         </div>
         <div className="dashboard__mainContainer">
-          <DashboardMain />
+          {dashboardElement === 0 && <DashboardMain />}
+          {dashboardElement === 1 && <DashboardHelp />}
         </div>
       </div>
     </div>

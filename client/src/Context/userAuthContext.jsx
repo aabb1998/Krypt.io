@@ -25,23 +25,16 @@ export function UserAuthContextProvider({ children }) {
   }
 
   function setDashboard(element) {
-    switch (element) {
-      case element === 0:
-        return setDashboardElement(0);
-        break;
-      case element === 1:
-        return setDashboardElement(1);
-        break;
-      case element === 2:
-        return setDashboardElement(2);
-        break;
-      case element === 3:
-        return setDashboardElement(3);
-        break;
-
-      default:
-        break;
-    }
+    if (element === 0) setDashboardElement(0);
+    if (element === 1) setDashboardElement(1);
+    if (element === 2) setDashboardElement(2);
+    if (element === 3) setDashboardElement(3);
+    if (element === 4) setDashboardElement(4);
+    if (element === 5) setDashboardElement(5);
+    if (element === 6) setDashboardElement(6);
+    if (element === 7) setDashboardElement(7);
+    if (element === 8) setDashboardElement(8);
+    if (element === 9) setDashboardElement(9);
   }
 
   function updateName(username) {
