@@ -21,17 +21,18 @@ const NavbarItems = ({ title, classProps }) => (
 const LogOut = ({ user, handleLogout }) => (
   <div className="logout__container">
     <Link to="/account">
-      {
-        <CgProfile
-          fontSize={24}
-          color="#3861FB"
-          style={{ cursor: 'pointer' }}
-        />
-      }
+      <img
+        style={{ width: '36px', borderRadius: '20px' }}
+        src={user.photoURL}
+        alt="photoUrl"
+      />
     </Link>
-    <span style={{ fontWeight: '500', marginLeft: '10px' }}>
-      {user.displayName}
-    </span>
+    <Link to="/account">
+      <span style={{ fontWeight: '500', marginLeft: '10px' }}>
+        {user.displayName}
+      </span>
+    </Link>
+
     <BiLogOut
       onClick={handleLogout}
       style={{ marginLeft: '10px', cursor: 'pointer' }}

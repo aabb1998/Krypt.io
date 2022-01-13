@@ -3,8 +3,18 @@ import DashboardNavbar from './DashboardNavbar';
 import LeftMenu from './LeftMenu/LeftMenu';
 import './Dashboard.css';
 import DashboardMain from './DashboardMain/DashboardMain';
+import { useUserAuth } from '../../Context/UserAuthContext';
+import { useEffect } from 'react';
 
 const Dashboard = () => {
+  const { user, logout, setDashboard, dashboardElement } = useUserAuth();
+
+  useEffect(() => {
+    console.log(dashboardElement);
+  }, []);
+
+  const currentDashboardElement = () => {};
+
   return (
     <div className="Dashboard">
       <div className="dashboard__nav">

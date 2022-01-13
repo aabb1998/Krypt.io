@@ -8,10 +8,12 @@ import { useState } from 'react';
 import PasswordReset from './PasswordReset';
 
 const Account = () => {
-  const { user, updateName, updateUserEmail, resetPass } = useUserAuth();
+  const { user, updateName, updateUserEmail, resetPass, updateProfilePic } =
+    useUserAuth();
   const [newUser, setNewUser] = useState('');
   const [newEmail, setNewEmail] = useState('');
   const [showModal, setShowModal] = useState(false);
+  const [photoUrl, setPhotoUrl] = useState('');
 
   const handleSubmit = async () => {
     try {
@@ -23,6 +25,14 @@ const Account = () => {
       }
 
       window.location.reload();
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  const handleProfilePic = async () => {
+    try {
+      await updateProfilePic(photoUrl);
     } catch (error) {
       console.log(error.message);
     }
@@ -55,8 +65,22 @@ const Account = () => {
                 <h4>Avatar</h4>
               </div>
               <div className="account__detail-info">
-                <img src={profilePic} alt="" />
-                <button className="account__avatar-btn">Edit Avatar</button>
+                <img
+                  style={{ borderRadius: '36px' }}
+                  src={user.photoURL}
+                  alt=""
+                />
+                <input
+                  placeholder="Photo Url"
+                  className="photoUrlInput"
+                  onChange={(e) => setPhotoUrl(e.target.value)}
+                />
+                <button
+                  onClick={handleProfilePic}
+                  className="account__avatar-btn"
+                >
+                  Edit Avatar
+                </button>
               </div>
             </div>
           </div>

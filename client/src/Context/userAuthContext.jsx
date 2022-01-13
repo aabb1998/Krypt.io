@@ -16,11 +16,32 @@ const userAuthContext = createContext();
 
 export function UserAuthContextProvider({ children }) {
   const [user, setUser] = useState({});
+  const [dashboardElement, setDashboardElement] = useState(0);
   function logIn(email, password) {
     return signInWithEmailAndPassword(auth, email, password);
   }
   function signUp(email, password, username) {
     return createUserWithEmailAndPassword(auth, email, password);
+  }
+
+  function setDashboard(element) {
+    switch (element) {
+      case element === 0:
+        return setDashboardElement(0);
+        break;
+      case element === 1:
+        return setDashboardElement(1);
+        break;
+      case element === 2:
+        return setDashboardElement(2);
+        break;
+      case element === 3:
+        return setDashboardElement(3);
+        break;
+
+      default:
+        break;
+    }
   }
 
   function updateName(username) {
@@ -32,6 +53,18 @@ export function UserAuthContextProvider({ children }) {
       })
       .catch((error) => {
         console.log(error.message);
+      });
+  }
+
+  function updateProfilePic(picUrl) {
+    return updateProfile(auth.currentUser, {
+      photoURL: picUrl,
+    })
+      .then(() => {
+        console.log('Profile Pic Updated.');
+      })
+      .error((err) => {
+        console.log(err.message);
       });
   }
 
@@ -82,6 +115,9 @@ export function UserAuthContextProvider({ children }) {
         updateName,
         updateUserEmail,
         resetPass,
+        updateProfilePic,
+        setDashboard,
+        dashboardElement,
       }}
     >
       {children}

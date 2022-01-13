@@ -20,6 +20,10 @@
                                   supported by Chrome, Edge, Opera and Firefox */
 }
 
+.photoUrlInput {
+  margin-right: 20px;
+}
+
 .account__profile-header {
   border-bottom: 1px solid #e5e5e5;
   padding: 10px;
@@ -49,7 +53,6 @@
 .account__profile-details {
   display: flex;
   flex-direction: row;
-  width: 70%;
   justify-content: left;
 }
 
