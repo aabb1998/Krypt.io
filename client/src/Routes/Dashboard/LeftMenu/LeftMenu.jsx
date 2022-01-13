@@ -6,13 +6,13 @@ import portfolio from '../../../assets/DashboardAssets/portfolio.png';
 import news from '../../../assets/DashboardAssets/news.png';
 import help from '../../../assets/DashboardAssets/help.png';
 import settings from '../../../assets/DashboardAssets/settings.png';
-import logout from '../../../assets/DashboardAssets/logout.png';
+import lo from '../../../assets/DashboardAssets/logout.png';
 import './LeftMenu.css';
 import { useUserAuth } from '../../../Context/UserAuthContext';
 import { useEffect } from 'react';
 
 const LeftMenu = () => {
-  const { user, logout, setDashboard, dashboardElement } = useUserAuth();
+  const { user, logOut, setDashboard, dashboardElement } = useUserAuth();
   const [dashboardPage, setDashboardPage] = useState(0);
 
   const handleLogout = async () => {
@@ -45,7 +45,7 @@ const LeftMenu = () => {
         </div>
         <div className="menu__link" onClick={() => setDashboardPage(3)}>
           <img src={portfolio} alt="" />
-          <h5>MY PORTFOLIO</h5>
+          <h5>MY WATCHLIST</h5>
         </div>
         <div className="menu__link" onClick={() => setDashboardPage(4)}>
           <img src={news} alt="" />
@@ -65,7 +65,7 @@ const LeftMenu = () => {
       </div>
       <div className="left__menuLogout">
         <div className="menu__link-logout" onClick={handleLogout}>
-          <img src={logout} alt="" />
+          <img src={lo} alt="" />
           <h5>LOG OUT</h5>
         </div>
       </div>

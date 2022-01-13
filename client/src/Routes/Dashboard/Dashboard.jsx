@@ -14,11 +14,6 @@ const Dashboard = () => {
     console.log(dashboardElement);
   }, [dashboardElement]);
 
-  const currentDashboardElement = () => {
-    if (dashboardElement === 0) return <DashboardMain />;
-    if (dashboardElement === 1) return <DashboardHelp />;
-  };
-
   return (
     <div className="Dashboard">
       <div className="dashboard__nav">
@@ -30,7 +25,7 @@ const Dashboard = () => {
         </div>
         <div className="dashboard__mainContainer">
           {dashboardElement === 0 && <DashboardMain />}
-          {dashboardElement === 1 && <DashboardHelp />}
+          {dashboardElement === 5 && <DashboardHelp />}
         </div>
       </div>
     </div>

@@ -31,10 +31,9 @@
   align-items: center;
   justify-content: left;
   width: 100%;
-  color: white;
+  color: black;
   padding: 10px;
   margin-bottom: 3px;
-  background-color: rgba(56, 97, 251, 0.46);
   padding-left: 40px;
   cursor: pointer;
   border-left: 4px solid transparent;
