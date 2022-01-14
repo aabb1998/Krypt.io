@@ -9,6 +9,7 @@ import { useUserAuth } from '../../Context/UserAuthContext';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const { logIn } = useUserAuth();
 
@@ -18,8 +19,10 @@ const Login = () => {
     if (email != '' || password != '') {
       e.preventDefault();
       setError('');
+      setLoading(false);
       console.log(error);
       try {
+        setLoading(true);
         await logIn(email, password);
         navigate('/');
       } catch (err) {
@@ -76,7 +79,7 @@ const Login = () => {
           </div>
           <div className="login__container-login">
             <button type="submit" onClick={handleSubmit}>
-              Login
+              {loading ? 'Loading...' : 'Login'}
             </button>
             <span>
               by logging in, you agree to our <br />

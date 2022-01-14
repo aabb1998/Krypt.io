@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import './LiveMarket.css';
 import CoinData from './CoinData';
+import Loader from '../Loader/Loader';
 
 const LiveMarket = () => {
   const [coinData, setCoinData] = useState([]);
@@ -50,29 +51,33 @@ const LiveMarket = () => {
 
   return (
     <div className="liveMarket">
-      <div className="liveMarket__section">
-        <div className="liveMarket__header">
-          <table id="data">
-            <tbody>
-              <tr>
-                <th>#</th>
-                <th></th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Change</th>
-                <th>24H High</th>
-              </tr>
-              {coinData &&
-                coinData.map((coin, index) => (
-                  <CoinData data={coin} key={index} />
-                ))}
-            </tbody>
-          </table>
+      {coinData ? (
+        <div className="liveMarket__section">
+          <div className="liveMarket__header">
+            <table id="data">
+              <tbody>
+                <tr>
+                  <th>#</th>
+                  <th></th>
+                  <th>Name</th>
+                  <th>Price</th>
+                  <th>Change</th>
+                  <th>24H High</th>
+                </tr>
+                {coinData &&
+                  coinData.map((coin, index) => (
+                    <CoinData data={coin} key={index} />
+                  ))}
+              </tbody>
+            </table>
+          </div>
+          <div className="data__load">
+            <button onClick={handleLoad}>Load More</button>
+          </div>
         </div>
-        <div className="data__load">
-          <button onClick={handleLoad}>Load More</button>
-        </div>
-      </div>
+      ) : (
+        <Loader />
+      )}
     </div>
   );
 };

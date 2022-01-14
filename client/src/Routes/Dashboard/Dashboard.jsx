@@ -6,6 +6,7 @@ import DashboardMain from './DashboardMain/DashboardMain';
 import { useUserAuth } from '../../Context/UserAuthContext';
 import { useEffect } from 'react';
 import DashboardHelp from './DashboardHelp/DashboardHelp';
+import RightMenu from './RIghtMenu/RightMenu';
 
 const Dashboard = () => {
   const { user, logout, setDashboard, dashboardElement } = useUserAuth();
@@ -26,6 +27,9 @@ const Dashboard = () => {
         <div className="dashboard__mainContainer">
           {dashboardElement === 0 && <DashboardMain />}
           {dashboardElement === 5 && <DashboardHelp />}
+        </div>
+        <div className="dashboard__rightMenu">
+          <RightMenu />
         </div>
       </div>
     </div>
