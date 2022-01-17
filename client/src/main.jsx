@@ -8,32 +8,35 @@ import Login from "./Routes/Account/Login";
 import ProtectedRoute from "./Components/ProtectedRoute";
 import { UserAuthContextProvider } from "./Context/UserAuthContext";
 import Dashboard from "./Routes/Dashboard/Dashboard";
+import { UserDataContextProvider } from "./Context/userDataContext";
 
 const rootElement = document.getElementById("root");
 render(
 	<BrowserRouter>
 		<UserAuthContextProvider>
-			<Routes>
-				<Route path="/" element={<App />} />
-				<Route
-					path="account"
-					element={
-						<ProtectedRoute>
-							<Account />
-						</ProtectedRoute>
-					}
-				/>
-				<Route path="signup" element={<SignUp />} />
-				<Route path="login" element={<Login />} />
-				<Route
-					path="dashboard"
-					element={
-						<ProtectedRoute>
-							<Dashboard />
-						</ProtectedRoute>
-					}
-				/>
-			</Routes>
+			<UserDataContextProvider>
+				<Routes>
+					<Route path="/" element={<App />} />
+					<Route
+						path="account"
+						element={
+							<ProtectedRoute>
+								<Account />
+							</ProtectedRoute>
+						}
+					/>
+					<Route path="signup" element={<SignUp />} />
+					<Route path="login" element={<Login />} />
+					<Route
+						path="dashboard"
+						element={
+							<ProtectedRoute>
+								<Dashboard />
+							</ProtectedRoute>
+						}
+					/>
+				</Routes>
+			</UserDataContextProvider>
 		</UserAuthContextProvider>
 	</BrowserRouter>,
 
