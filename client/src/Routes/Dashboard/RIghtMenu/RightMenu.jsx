@@ -111,9 +111,7 @@ const RightMenu = () => {
 				</div>
 			)}
 			<div className="right__menu-recents">
-				<div className="right__menu-recents-header">
-					<button onClick={handleDataTest}>text</button>
-				</div>
+				<div className="right__menu-recents-header"></div>
 			</div>
 		</div>
 	);
