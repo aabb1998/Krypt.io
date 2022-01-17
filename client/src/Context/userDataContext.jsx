@@ -48,10 +48,11 @@ export function UserDataContextProvider({ children }) {
 		fetchCurrentMarket();
 	}, []);
 
-	function writeUserData(userId, name, email) {
-		return set(ref(db, "users/" + userId), {
-			username: name,
-			email: email,
+	function writeUserData(userId, coin, price, symbol) {
+		return set(ref(db, "users/" + userId + "/watchlist/" + coin), {
+			CoinName: coin,
+			price: price,
+			symbol: symbol,
 		})
 			.then(() => {
 				console.log("Added to database");

@@ -1,0 +1,54 @@
+.market__prices {
+	display: flex;
+	flex-direction: column;
+}
+
+.current__market__rates {
+	display: flex;
+	flex-direction: column;
+}
+
+.coin__price {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	background-color: white;
+	padding: 10px;
+	margin-bottom: 20px;
+	border-radius: 20px;
+	margin-top: 20px;
+	align-items: center;
+}
+
+.coin__rate {
+	min-width: 30%;
+	text-align: left;
+	align-items: flex-start;
+}
+
+.coin__details {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	width: 30%;
+}
+
+.coin__details img {
+	width: 30px;
+	margin-right: 20px;
+}
+
+.coin__details .coin__price {
+}
+
+.coin__percentChange {
+}
+
+.coin__addWatchlist button {
+	padding: 10px;
+	font-size: 10px;
+	background-color: #3861fb;
+	color: white;
+	font-weight: bold;
+	border-radius: 10px;
+}
