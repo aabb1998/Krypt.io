@@ -13,9 +13,13 @@ const SignUp = () => {
 	const [confirmPass, setConfirmPass] = useState("");
 	const [username, setUserName] = useState("");
 	const [agreeTerms, setAgreeTerms] = useState(false);
-	const { signUp, updateName, logOut, resetPass } = useUserAuth();
+	const { signUp, updateName, logOut, resetPass, updateProfilePic } =
+		useUserAuth();
 	const [showModal, setShowModal] = useState(false);
 	const [error, setError] = useState("");
+	const [profilePic, setProfilePic] = useState(
+		"https://img.icons8.com/ios-glyphs/2x/test-account.png"
+	);
 
 	const navigate = useNavigate();
 
@@ -26,6 +30,7 @@ const SignUp = () => {
 			try {
 				await signUp(email, password, username);
 				await updateName(username);
+
 				await logOut();
 				navigate("/login");
 			} catch (error) {

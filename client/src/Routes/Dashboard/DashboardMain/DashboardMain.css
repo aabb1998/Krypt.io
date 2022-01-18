@@ -1,20 +1,20 @@
 .dashboard__mainContainer {
-  display: flex;
-  flex-direction: column;
-  padding: 50px;
+	display: flex;
+	flex-direction: column;
+	padding: 50px;
 }
 
 .dashboard__main-header {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 .dashboard__main-header h4 {
-  font-size: 40px;
-  font-weight: 500;
+	font-size: 40px;
+	font-weight: 500;
 }
 
 .dashboard__main-header span {
-  font-size: 17px;
-  font-weight: 300;
+	font-size: 17px;
+	font-weight: 300;
 }

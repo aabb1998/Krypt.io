@@ -10,6 +10,7 @@ const userDataContext = createContext();
 export function UserDataContextProvider({ children }) {
 	const [user, setUser] = useState({});
 	const [market, setCurrentMarket] = useState();
+	const [coinPurchase, setCoinPurchase] = useState({});
 
 	const db = getDatabase();
 	// let ref = Database.database(
@@ -62,6 +63,16 @@ export function UserDataContextProvider({ children }) {
 			});
 	}
 
+	function purchaseCoin(userId, coinName, coinSymbol, price, imageUrl) {
+		setCoinPurchase({
+			userId: userId,
+			coinName: coinName,
+			coinSymbol: coinSymbol,
+			coinPrice: price,
+			imageUrl: imageUrl,
+		});
+	}
+
 	useEffect(() => {
 		const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
 			setUser(currentUser);
@@ -73,7 +84,9 @@ export function UserDataContextProvider({ children }) {
 	}, []);
 
 	return (
-		<userDataContext.Provider value={{ user, writeUserData, market }}>
+		<userDataContext.Provider
+			value={{ user, writeUserData, market, coinPurchase, purchaseCoin }}
+		>
 			{children}
 		</userDataContext.Provider>
 	);

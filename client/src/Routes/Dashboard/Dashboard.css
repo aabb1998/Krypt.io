@@ -1,16 +1,16 @@
 .dashboard__leftMenu {
-  min-width: 250px;
-  height: calc(100vh - 75px);
-  display: flex;
-  width: 18%;
+	min-width: 250px;
+	height: calc(100vh - 75px);
+	display: flex;
+	width: 18%;
 }
 
 .dashboard__main {
-  display: flex;
-  flex-direction: row;
+	display: flex;
+	flex-direction: row;
 }
 
 .dashboard__mainContainer {
-  background-color: #e5e5e5;
-  width: 100%;
+	background-color: #e5e5e5;
+	width: 100%;
 }

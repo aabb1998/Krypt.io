@@ -6,6 +6,9 @@
 .current__market__rates {
 	display: flex;
 	flex-direction: column;
+	overflow-y: scroll;
+	height: 230px;
+	scroll-behavior: smooth;
 }
 
 .coin__price {
@@ -14,7 +17,7 @@
 	justify-content: space-between;
 	background-color: white;
 	padding: 10px;
-	margin-bottom: 20px;
+	margin-bottom: 0px;
 	border-radius: 20px;
 	margin-top: 20px;
 	align-items: center;
@@ -31,6 +34,19 @@
 	flex-direction: row;
 	align-items: center;
 	width: 30%;
+	text-align: center;
+}
+
+.coin__details span {
+	margin-right: 10px;
+	font-weight: bold;
+}
+
+.coin__details p {
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 13px;
+	color: gray;
 }
 
 .coin__details img {
@@ -51,4 +67,26 @@
 	color: white;
 	font-weight: bold;
 	border-radius: 10px;
+}
+
+.market__price-header {
+	margin-top: 20px;
+	font-size: 1.3rem;
+	font-weight: bold;
+}
+
+.coin__addWatchlist-start {
+	cursor: pointer;
+	margin-right: 20px;
+	margin-left: 20px;
+}
+
+.coin__addWatchlist-start:hover {
+	color: #3861fb;
+}
+
+.coin__addWatchlist {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
 }

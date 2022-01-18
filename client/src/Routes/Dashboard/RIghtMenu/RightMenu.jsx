@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./RightMenu.css";
 import cardano from "../../../assets/DashboardAssets/cardano.png";
 import dropdown from "../../../assets/DashboardAssets/dropdown.png";
@@ -7,7 +7,7 @@ import { useUserData } from "../../../Context/userDataContext";
 
 const RightMenu = () => {
 	const [tradeOption, setTradeOption] = useState(true);
-	const { user, writeUserData } = useUserData();
+	const { user, writeUserData, coinPurchase, purchaseCoin } = useUserData();
 
 	const handleDataTest = async () => {
 		try {
@@ -16,6 +16,11 @@ const RightMenu = () => {
 			console.log(error.message);
 		}
 	};
+
+	useEffect(async () => {
+		await coinPurchase;
+		console.log(coinPurchase);
+	}, [coinPurchase]);
 
 	return (
 		<div className="right__menu">
@@ -38,8 +43,10 @@ const RightMenu = () => {
 					</div>
 					<div className="purchase__price">
 						<div className="coin__name">
-							<span>Bitcoin price</span>
-							<h5>$44,121.71</h5>
+							<span>{coinPurchase.coinName} price</span>
+							<h5>
+								${coinPurchase?.coinPrice?.toLocaleString()}
+							</h5>
 						</div>
 					</div>
 					<div className="purchase__info">
@@ -47,11 +54,14 @@ const RightMenu = () => {
 							<input type="number" placeholder="Amount to buy" />
 						</div>
 						<div className="purchase__amount-coin">
-							<img src={cardano} alt="" />
+							<img src={coinPurchase.imageUrl} alt="" />
 							<input
-								style={{ fontSize: "10px" }}
+								style={{
+									fontSize: "10px",
+									textTransform: "uppercase",
+								}}
 								type="text"
-								placeholder="BTC"
+								placeholder={coinPurchase.coinSymbol}
 							/>
 							<img
 								style={{ width: "10px" }}
@@ -61,7 +71,7 @@ const RightMenu = () => {
 						</div>
 					</div>
 					<div className="purchase__button">
-						<button>Buy BTC</button>
+						<button>Buy {coinPurchase.coinName}</button>
 					</div>
 				</div>
 			) : (
@@ -83,8 +93,8 @@ const RightMenu = () => {
 					</div>
 					<div className="purchase__price">
 						<div className="coin__name">
-							<span>Bitcoin Price</span>
-							<h5>$44,121.71</h5>
+							<span>{coinPurchase.coinName} price</span>
+							<h5>${coinPurchase.coinPrice.toLocaleString()}</h5>
 						</div>
 					</div>
 					<div className="purchase__info">
@@ -92,11 +102,14 @@ const RightMenu = () => {
 							<input type="number" placeholder="Amount to sell" />
 						</div>
 						<div className="purchase__amount-coin">
-							<img src={cardano} alt="" />
+							<img src={coinPurchase.imageUrl} alt="" />
 							<input
-								style={{ fontSize: "10px" }}
+								style={{
+									fontSize: "10px",
+									textTransform: "uppercase",
+								}}
 								type="text"
-								placeholder="BTC"
+								placeholder={coinPurchase.coinSymbol}
 							/>
 							<img
 								style={{ width: "10px" }}
@@ -106,7 +119,7 @@ const RightMenu = () => {
 						</div>
 					</div>
 					<div className="purchase__button">
-						<button>Sell BTC</button>
+						<button>Sell {coinPurchase.coinName}</button>
 					</div>
 				</div>
 			)}

@@ -9,14 +9,16 @@ const Prices = () => {
 	const [displayAmount, setDisplayAmount] = useState(3);
 	useEffect(async () => {
 		await market;
-		console.log(market.slice(0, 3));
 	}, []);
 	return (
 		<div className="market__prices">
+			<div className="market__price-header">
+				<h1>Explore the Market</h1>
+			</div>
 			<div className="current__market__rates">
 				{market &&
 					market
-						.slice(0, 3)
+						.slice(0, 12)
 						.map((coin, index) => (
 							<Price key={index} data={coin} />
 						))}
