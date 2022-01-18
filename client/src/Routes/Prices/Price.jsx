@@ -37,8 +37,8 @@ const Price = (data, index) => {
 				<span
 					style={
 						data.data.price_change_percentage_24h >= 0
-							? { color: "green" }
-							: { color: "red" }
+							? { color: "#16c784" }
+							: { color: "#ea3943" }
 					}
 				>
 					{parseFloat(data.data.price_change_percentage_24h).toFixed(
