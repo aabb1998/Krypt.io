@@ -12,7 +12,7 @@ export function UserPortfolioContextProvider({ children }) {
 	const [userValue, setUserValue] = useState(100000);
 
 	const db = getDatabase();
-	const postListRef = ref(db, "users/transactions");
+	const postListRef = ref(db, "users/" + user.uid + "/transactions");
 	const newPostRef = push(postListRef);
 
 	useEffect(() => {
