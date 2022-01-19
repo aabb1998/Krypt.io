@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./DashboardMain.css";
 import LiveMarket from "../../../Components/LiveMarket/LiveMarket";
 import Prices from "../../Prices/Prices";
+import { useUserPortfolio } from "../../../Context/userPortfolioContext";
 
 const DashboardMain = () => {
+	const { user, updateUserPortfolioValue, userValue } = useUserPortfolio();
+
+	useEffect(() => {
+		console.log(userValue);
+	}, [userValue]);
+
+	const handleUpdate = async () => {
+		await updateUserPortfolioValue(user.uid, 134827.23);
+	};
+
 	return (
 		<div className="dashboard__mainContainer">
 			<div className="dashboard__main-header">
@@ -23,7 +34,7 @@ const DashboardMain = () => {
 							/>
 						</div>
 						<div className="portfolio-value__value">
-							<span>$324,000</span>
+							<span>${userValue.toLocaleString()}</span>
 							<p>$42,130.24</p>
 						</div>
 						<div className="portfolio-value__change">

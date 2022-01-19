@@ -4,10 +4,14 @@ import cardano from "../../../assets/DashboardAssets/cardano.png";
 import dropdown from "../../../assets/DashboardAssets/dropdown.png";
 import { useState } from "react";
 import { useUserData } from "../../../Context/userDataContext";
+import { useUserPortfolio } from "../../../Context/userPortfolioContext";
 
 const RightMenu = () => {
 	const [tradeOption, setTradeOption] = useState(true);
 	const { user, writeUserData, coinPurchase, purchaseCoin } = useUserData();
+	const { updateUserPortfolioValue, userValue, buyTransaction } =
+		useUserPortfolio();
+	const [transactionSize, setTransactionSize] = useState("");
 
 	const handleDataTest = async () => {
 		try {
@@ -15,6 +19,21 @@ const RightMenu = () => {
 		} catch (error) {
 			console.log(error.message);
 		}
+	};
+
+	const handleBuy = async () => {
+		await buyTransaction(
+			user.uid,
+			coinPurchase.coinName,
+			transactionSize,
+			coinPurchase.coinPrice
+		);
+		console.log(
+			user.uid,
+			coinPurchase.coinName,
+			transactionSize,
+			coinPurchase.coinPrice
+		);
 	};
 
 	useEffect(async () => {
@@ -51,7 +70,13 @@ const RightMenu = () => {
 					</div>
 					<div className="purchase__info">
 						<div className="purchase__amount-size">
-							<input type="number" placeholder="Amount to buy" />
+							<input
+								onChange={(e) =>
+									setTransactionSize(e.target.value)
+								}
+								type="number"
+								placeholder="Amount to buy"
+							/>
 						</div>
 						<div className="purchase__amount-coin">
 							<img src={coinPurchase.imageUrl} alt="" />
@@ -71,7 +96,9 @@ const RightMenu = () => {
 						</div>
 					</div>
 					<div className="purchase__button">
-						<button>Buy {coinPurchase.coinName}</button>
+						<button onClick={handleBuy}>
+							Buy {coinPurchase.coinName}
+						</button>
 					</div>
 				</div>
 			) : (
