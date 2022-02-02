@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Account.css";
 import Navbar from "./../../Components/Navbar/Navbar";
 import { Footer, MailingList } from "../../Components";
@@ -6,6 +6,7 @@ import profilePic from "../../assets/profile-pic.png";
 import { useUserAuth } from "../../Context/UserAuthContext";
 import { useState } from "react";
 import PasswordReset from "./PasswordReset";
+import axios from "axios";
 
 const Account = () => {
 	const { user, updateName, updateUserEmail, resetPass, updateProfilePic } =
@@ -46,6 +47,36 @@ const Account = () => {
 	const handleModalClose = () => {
 		setShowModal(false);
 	};
+
+	useEffect(() => {
+		// axios
+		// 	.get("http://localhost:5000/user")
+		// 	.then((res) => {
+		// 		console.log(res.data);
+		// 	})
+		// 	.catch((error) => {
+		// 		console.error(error);
+		// 	});
+
+		axios
+			.post(`http://localhost:5000/user/${user.uid}`, {
+				userHaytch: {
+					watchlist: [
+						{
+							Ethereum: 45098,
+							amount: 0.2324324324324,
+							time: "2019",
+						},
+					],
+				},
+			})
+			.then((res) => {
+				console.log(res);
+			})
+			.catch((error) => {
+				console.error(error);
+			});
+	}, [user]);
 
 	return (
 		<div className="account__profile">
